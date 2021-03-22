@@ -1,6 +1,9 @@
-var o = require('os');
+var EventEmitter = require('events');
 
-console.log(o.platform());
+var custom_event = new EventEmitter();
 
+custom_event.on('call', function() {
+    console.log('이벤트 콜');
+});
 
-
+custom_event.emit('call');
